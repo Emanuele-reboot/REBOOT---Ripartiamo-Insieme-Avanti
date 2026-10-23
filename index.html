@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#155eef">
+  <meta name="description" content="Reboot — Ripartiamo, Insieme, Avanti. La web app della Lista d'Istituto.">
+  <title>Reboot — Ripartiamo, Insieme, Avanti</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Reboot home">
+      <span class="brand-mark">R<span>↗</span></span>
+      <span><strong>REBOOT</strong><small>Ripartiamo, Insieme, Avanti</small></span>
+    </a>
+    <button id="menuBtn" class="menu-btn" aria-label="Apri menu" aria-expanded="false">☰</button>
+    <nav id="nav">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#sondaggi" class="nav-link">Sondaggi</a>
+      <a href="#proposte" class="nav-link">Proposte</a>
+      <a href="#news" class="nav-link">News & eventi</a>
+      <button id="adminOpen" class="nav-admin">Area admin</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="pulse"></span> LISTA D'ISTITUTO · ITI LUCARELLI</span>
+        <h1>La scuola cambia<br><span>se partecipiamo.</span></h1>
+        <p>Ripartiamo, Insieme, Avanti. Uno spazio per ascoltare le idee degli studenti, confrontarci e trasformarle in iniziative concrete.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#proposte">Fai sentire la tua voce <span>↗</span></a>
+          <a class="btn secondary" href="#sondaggi">Partecipa ai sondaggi</a>
+        </div>
+        <div class="hero-note"><span class="mini-icon">✓</span> Idee, confronto e partecipazione. Insieme.</div>
+      </div>
+      <div class="hero-art" aria-label="Grafica Reboot">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="hero-card">
+          <div class="card-top"><span class="dot-blue"></span><span>IL PROSSIMO PASSO</span><span class="card-menu">•••</span></div>
+          <div class="big-r">R<span>↗</span></div>
+          <div class="card-line"></div><div class="card-line short"></div>
+          <div class="card-bottom"><span>RIPARTIAMO.</span><span>01 / 03</span></div>
+        </div>
+        <div class="floating-chip chip-top">✳ Idee nuove</div>
+        <div class="floating-chip chip-bottom"><span class="chip-check">✓</span> Una scuola più nostra</div>
+        <div class="art-spark">✦</div>
+      </div>
+    </section>
+
+    <section class="stats section compact">
+      <div><strong id="statPolls">0</strong><span>Sondaggi attivi</span></div>
+      <div><strong id="statIdeas">0</strong><span>Proposte ricevute</span></div>
+      <div><strong id="statEvents">0</strong><span>News ed eventi</span></div>
+      <div class="stats-tag">LA TUA VOCE CONTA <span>↗</span></div>
+    </section>
+
+    <section id="sondaggi" class="section content-section">
+      <div class="section-heading">
+        <div><span class="eyebrow">PARTECIPA</span><h2>La tua opinione <span>conta.</span></h2></div>
+        <p>Rispondi ai sondaggi e aiutaci a capire quali iniziative sono più sentite dagli studenti.</p>
+      </div>
+      <div id="pollList" class="poll-grid"></div>
+      <p class="fine-print">I sondaggi sono consultivi e non costituiscono votazioni ufficiali. In questa versione demo, i dati restano nel browser che stai usando.</p>
+    </section>
+
+    <section id="proposte" class="section proposal-section">
+      <div class="proposal-copy">
+        <span class="eyebrow light">DALL'IDEA ALL'AZIONE</span>
+        <h2>Hai un'idea?<br><span>Facciamola partire.</span></h2>
+        <p>Raccontaci cosa vorresti migliorare, quale attività ti piacerebbe organizzare o quale problema merita attenzione.</p>
+        <div class="privacy-note"><span>◎</span><div><strong>Condividi con attenzione</strong><small>Non inserire dati sensibili, nomi di altre persone o informazioni private. Le proposte non sono anonime in senso tecnico se usi un dispositivo condiviso.</small></div></div>
+      </div>
+      <form id="ideaForm" class="idea-form">
+        <label for="ideaType">Tipo di messaggio</label>
+        <select id="ideaType" required>
+          <option value="Proposta">Proposta</option><option value="Segnalazione">Segnalazione</option><option value="Evento">Idea per un evento</option>
+        </select>
+        <label for="ideaTitle">Titolo</label>
+        <input id="ideaTitle" maxlength="80" placeholder="Es. Più spazi per studiare" required>
+        <label for="ideaBody">Raccontaci la tua idea</label>
+        <textarea id="ideaBody" maxlength="1200" rows="4" placeholder="Spiegaci in breve cosa proponi e perché..." required></textarea>
+        <button class="btn primary full" type="submit">Invia proposta <span>↗</span></button>
+        <p id="ideaMessage" class="form-message" role="status"></p>
+      </form>
+    </section>
+
+    <section id="news" class="section content-section">
+      <div class="section-heading">
+        <div><span class="eyebrow">RESTA AGGIORNATO</span><h2>News & <span>calendario.</span></h2></div>
+        <p>Comunicazioni, iniziative e appuntamenti della lista.</p>
+      </div>
+      <div id="newsList" class="news-grid"></div>
+    </section>
+
+    <section class="closing section">
+      <div><span class="eyebrow">REBOOT · ITI LUCARELLI</span><h2>Ripartiamo.<br>Insieme. <span>Avanti.</span></h2></div>
+      <a class="btn white" href="#proposte">Partecipa anche tu <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer><div class="footer-brand">REBOOT <span>↗</span></div><p>Ripartiamo, Insieme, Avanti.</p><small>Prototipo indipendente della lista. Non è un sito ufficiale dell'istituto.</small></footer>
+
+  <dialog id="adminDialog" class="modal">
+    <div class="modal-head"><div><span class="eyebrow">GESTIONE CONTENUTI</span><h2>Area amministratore</h2></div><button class="icon-btn" id="adminClose" aria-label="Chiudi">✕</button></div>
+    <div id="adminLogin">
+      <p>Inserisci il PIN demo per gestire sondaggi, news e consultare le proposte salvate su questo dispositivo.</p>
+      <label for="adminPin">PIN demo</label><input id="adminPin" type="password" inputmode="numeric" maxlength="12" placeholder="PIN">
+      <button id="loginBtn" class="btn primary full">Accedi</button>
+      <p class="fine-print">Demo: PIN iniziale <strong>2468</strong>. Non è una protezione sicura: cambialo nel file app.js solo per prove locali. Non pubblicare dati reali con questa versione.</p>
+      <p id="loginMessage" class="form-message" role="status"></p>
+    </div>
+    <div id="adminPanel" hidden>
+      <div class="admin-tabs"><button class="tab active" data-tab="adminPolls">Sondaggi</button><button class="tab" data-tab="adminNews">News/eventi</button><button class="tab" data-tab="adminIdeas">Proposte</button></div>
+      <div id="adminPolls" class="admin-pane">
+        <h3>Crea un sondaggio</h3>
+        <form id="pollForm">
+          <label for="pollQuestion">Domanda</label><input id="pollQuestion" maxlength="140" required placeholder="Quale iniziativa preferisci?">
+          <label for="pollOptions">Opzioni (separate da virgola)</label><input id="pollOptions" required placeholder="Sport, Musica, Torneo">
+          <button class="btn primary full">Pubblica sondaggio</button>
+        </form><div id="managePolls"></div>
+      </div>
+      <div id="adminNews" class="admin-pane" hidden>
+        <h3>Pubblica una news o un evento</h3>
+        <form id="newsForm">
+          <label for="newsType">Categoria</label><select id="newsType"><option>News</option><option>Evento</option><option>Avviso</option></select>
+          <label for="newsTitle">Titolo</label><input id="newsTitle" maxlength="100" required>
+          <label for="newsDate">Data (facoltativa)</label><input id="newsDate" type="date">
+          <label for="newsBody">Descrizione</label><textarea id="newsBody" maxlength="1200" rows="3" required></textarea>
+          <button class="btn primary full">Pubblica</button>
+        </form><div id="manageNews"></div>
+      </div>
+      <div id="adminIdeas" class="admin-pane" hidden><h3>Proposte ricevute su questo dispositivo</h3><div id="manageIdeas"></div></div>
+      <button id="logoutBtn" class="btn secondary full logout">Esci dall'area admin</button>
+    </div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
